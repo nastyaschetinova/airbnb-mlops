@@ -14,3 +14,5 @@ pip install boto3 pandas ipykernel
 ## Запуск
 
 Ноутбук запускаю в VS Code (venv Python 3.15.2).
+pip install -r requirements.txt
+скопируйте .env.example в .env и заполните ключи
