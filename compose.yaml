@@ -11,5 +11,19 @@ services:
     volumes:
       - model-data:/artifacts
 
+  api:
+    build:
+      context: .
+      dockerfile: docker/api.Dockerfile
+    environment:
+      MODEL_PATH: /artifacts/model.pkl
+    volumes:
+      - model-data:/artifacts:ro
+    ports:
+      - "8000:8000"
+    depends_on:
+      train:
+        condition: service_completed_successfully
+
 volumes:
   model-data:
