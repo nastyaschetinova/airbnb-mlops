@@ -1,0 +1,15 @@
+name: airbnb-mlops
+
+services:
+  train:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    env_file: .env
+    environment:
+      MODEL_PATH: /artifacts/model.pkl
+    volumes:
+      - model-data:/artifacts
+
+volumes:
+  model-data:
